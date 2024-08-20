@@ -1,16 +1,11 @@
-import { generateYAxis } from '@/app/lib/utils';
+import { generateYAxis } from '../../lib/utils';
 import { CalendarIcon } from '@heroicons/react/24/outline';
-import { lusitana } from '@/app/ui/fonts';
+import { lusitana } from '../fonts';
+import { fetchRevenue } from '../../lib/data';
 
-// This component is representational only.
-// For data visualization UI, check out:
-// https://www.tremor.so/
-// https://www.chartjs.org/
-// https://airbnb.io/visx/
-
-export default async function RevenueChart({ revenue }) {
+export default async function RevenueChart() {
+  const revenue = await fetchRevenue();
   const chartHeight = 350;
-  // NOTE: Uncomment this code in Chapter 7
 
   const { yAxisLabels, topLabel } = generateYAxis(revenue);
 
@@ -23,7 +18,6 @@ export default async function RevenueChart({ revenue }) {
       <h2 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
         Recent Revenue
       </h2>
-      {/* NOTE: Uncomment this code in Chapter 7 */}
       <div className="p-4 rounded-xl bg-gray-50">
         <div className="grid items-end grid-cols-12 gap-2 p-4 mt-0 bg-white rounded-md sm:grid-cols-13 md:gap-4">
           <div
@@ -51,7 +45,7 @@ export default async function RevenueChart({ revenue }) {
         </div>
         <div className="flex items-center pt-6 pb-2">
           <CalendarIcon className="w-5 h-5 text-gray-500" />
-          <h3 className="ml-2 text-sm text-gray-500 ">Last 12 months</h3>
+          <h3 className="ml-2 text-sm text-gray-500">Last 12 months</h3>
         </div>
       </div>
     </div>

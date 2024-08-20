@@ -1,6 +1,7 @@
 // /app/dashboard/layout.jsx
 import SideNav from '@/app/ui/dashboard/sidenav';
 
+export const experimental_ppr = true;
 export default function Layout({ children }) {
   return (
     <div className="flex flex-col h-screen md:flex-row md:overflow-hidden">
@@ -9,6 +10,7 @@ export default function Layout({ children }) {
       </div>
       <div className="flex-grow p-6 md:overflow-y-auto md:p-12">{children}</div>
     </div>
+    
   );
 }
 

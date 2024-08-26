@@ -2,8 +2,8 @@
 import { ArrowPathIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
 import Image from 'next/image';
-import { lusitana } from '@/app/ui/fonts';
-import { fetchRevenue, fetchLatestInvoices } from "@/app/lib/data";
+import { lusitana } from '../../ui/fonts';
+import { fetchRevenue, fetchLatestInvoices } from "../../lib/data";
 
 export default async function Page() {
   const revenue = await fetchRevenue();
